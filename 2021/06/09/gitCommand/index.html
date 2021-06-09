@@ -1,0 +1,48 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="lambert.zxm 的博客 description"><title>Git 常用命令 | lambert.zxm</title><link rel="stylesheet" type="text/css" href="/css/normalize.css"><link rel="stylesheet" type="text/css" href="/css/highlight.css"><link rel="stylesheet" type="text/css" href="/css/font.css"><link rel="stylesheet" type="text/css" href="/css/noise.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"></head><body><article class="wrapper"><div class="post-main"><div class="nav"><nav class="container"><a class="sidebar-nav-item active" href="/">Home</a><a class="sidebar-nav-item" href="/archives">Archives</a></nav><div class="container post-meta"><div class="post-time">2021-06-09</div></div></div><div class="container post-header"><h1>Git 常用命令</h1></div><div class="container post-content"><h5 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h5><pre><code>git init
+</code></pre><h5 id="设置本地信息"><a href="#设置本地信息" class="headerlink" title="设置本地信息"></a>设置本地信息</h5><pre><code>git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;email@example.com&quot;
+</code></pre><h5 id="添加到本地git仓库"><a href="#添加到本地git仓库" class="headerlink" title="添加到本地git仓库"></a>添加到本地git仓库</h5><pre><code>git add 文件
+git commit -m &apos;提交原因&apos;
+</code></pre><h5 id="一次性提交所有改变过的文件"><a href="#一次性提交所有改变过的文件" class="headerlink" title="一次性提交所有改变过的文件"></a>一次性提交所有改变过的文件</h5><pre><code>git add -A
+git commit -m &apos;提交原因&apos;
+</code></pre><h5 id="推送到远端仓库"><a href="#推送到远端仓库" class="headerlink" title="推送到远端仓库"></a>推送到远端仓库</h5><pre><code>git push origin 分支名
+</code></pre><h5 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h5><pre><code>git reset --hard commit_id
+</code></pre><h5 id="或者"><a href="#或者" class="headerlink" title="或者"></a>或者</h5><pre><code>git reset HEAD^
+</code></pre><h5 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h5><pre><code>git log
+</code></pre><h5 id="或者-1"><a href="#或者-1" class="headerlink" title="或者"></a>或者</h5><pre><code>git log --pretty=oneline
+</code></pre><h5 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h5><pre><code>git status
+</code></pre><h5 id="关联远程库"><a href="#关联远程库" class="headerlink" title="关联远程库"></a>关联远程库</h5><pre><code>git remote add origin git@server-name:path/repo-name.git
+</code></pre><h5 id="第一次推送master分支"><a href="#第一次推送master分支" class="headerlink" title="第一次推送master分支"></a>第一次推送master分支</h5><pre><code>git push -u origin master
+</code></pre><h5 id="克隆远端库"><a href="#克隆远端库" class="headerlink" title="克隆远端库"></a>克隆远端库</h5><pre><code>git clone git@server-name:path/repo-name.git
+</code></pre><h5 id="从远端库拉取当前分支的修改"><a href="#从远端库拉取当前分支的修改" class="headerlink" title="从远端库拉取当前分支的修改"></a>从远端库拉取当前分支的修改</h5><pre><code>git pull
+</code></pre><h5 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h5><pre><code>git branch
+</code></pre><h5 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h5><pre><code>git branch 分支名
+</code></pre><h5 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h5><pre><code>git checkout 分支名
+</code></pre><h5 id="创建-切换分支"><a href="#创建-切换分支" class="headerlink" title="创建+切换分支"></a>创建+切换分支</h5><pre><code>git checkout -b 分支名
+</code></pre><h5 id="合并某分支到当前分支"><a href="#合并某分支到当前分支" class="headerlink" title="合并某分支到当前分支"></a>合并某分支到当前分支</h5><pre><code>git merge 分支名
+</code></pre><h5 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h5><pre><code>git branch -D 分支名
+</code></pre><h5 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h5><pre><code>git push origin :分支名
+</code></pre><h5 id="查看分支合并图"><a href="#查看分支合并图" class="headerlink" title="查看分支合并图"></a>查看分支合并图</h5><pre><code>git log --graph
+</code></pre><h5 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h5><pre><code>git remote -v
+</code></pre><h5 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h5><pre><code>git tag 标签名
+</code></pre><h5 id="可以指定标签信息"><a href="#可以指定标签信息" class="headerlink" title="可以指定标签信息"></a>可以指定标签信息</h5><pre><code>git tag -a 标签名 -m &quot;信息&quot;
+</code></pre><h5 id="查看所有标签"><a href="#查看所有标签" class="headerlink" title="查看所有标签"></a>查看所有标签</h5><pre><code>git tag
+</code></pre><h5 id="推送一个本地标签到远程"><a href="#推送一个本地标签到远程" class="headerlink" title="推送一个本地标签到远程"></a>推送一个本地标签到远程</h5><pre><code>git push origin 标签名
+</code></pre><h5 id="推送全部未推送过的本地标签"><a href="#推送全部未推送过的本地标签" class="headerlink" title="推送全部未推送过的本地标签"></a>推送全部未推送过的本地标签</h5><pre><code>git push origin --tags
+</code></pre><h5 id="删除一个本地标签"><a href="#删除一个本地标签" class="headerlink" title="删除一个本地标签"></a>删除一个本地标签</h5><pre><code>git tag -d 标签名
+</code></pre><h5 id="删除一个远程标签"><a href="#删除一个远程标签" class="headerlink" title="删除一个远程标签"></a>删除一个远程标签</h5><pre><code>git push origin :refs/tags/标签名
+</code></pre><h5 id="设置忽略文件"><a href="#设置忽略文件" class="headerlink" title="设置忽略文件"></a>设置忽略文件</h5><pre><code>添加.gitignore文件
+</code></pre><h5 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a>推荐文章</h5><p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" title="Title" target="_blank" rel="noopener">an 廖雪峰的官方网站</a></p>
+</div></div><div class="post-main post-comment"><div id="gitalk-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script>const gitalk = new Gitalk({
+    clientID: '4c4af1e8cf94493fa426',
+    clientSecret: '6dcb2edc797cbc17b0591b115adf1b5ec50fa3d1',
+    repo: 'Xminger.github.io',
+    owner: 'Xminger',
+    admin: ['Xminger'],
+    id: '2021/06/09/gitCommand/',      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+});
+gitalk.render('gitalk-container');</script></div></article><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css"><script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script><script src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script>$(document).ready(function() {
+  $(".fancybox").fancybox();
+});</script></body></html>

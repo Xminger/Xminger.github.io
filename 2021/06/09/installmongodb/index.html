@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="lambert.zxm 的博客 description"><title>mac 安装mongodb | lambert.zxm</title><link rel="stylesheet" type="text/css" href="/css/normalize.css"><link rel="stylesheet" type="text/css" href="/css/highlight.css"><link rel="stylesheet" type="text/css" href="/css/font.css"><link rel="stylesheet" type="text/css" href="/css/noise.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"></head><body><article class="wrapper"><div class="post-main"><div class="nav"><nav class="container"><a class="sidebar-nav-item active" href="/">Home</a><a class="sidebar-nav-item" href="/archives">Archives</a></nav><div class="container post-meta"><div class="post-tags"><a class="post-tag-link" href="/tags/mongodb/">mongodb</a></div><div class="post-time">2021-06-09</div></div></div><div class="container post-header"><h1>mac 安装mongodb</h1></div><div class="container post-content"><h2 id="一、先去官网下载安装包"><a href="#一、先去官网下载安装包" class="headerlink" title="一、先去官网下载安装包"></a>一、先去官网下载<a href="https://www.mongodb.com/download-center?jmp=nav#community" target="_blank" rel="noopener">安装包</a></h2><h2 id="二、解压"><a href="#二、解压" class="headerlink" title="二、解压"></a>二、解压</h2><h2 id="三、把解压后的文件剪切到-usr-local文件夹下"><a href="#三、把解压后的文件剪切到-usr-local文件夹下" class="headerlink" title="三、把解压后的文件剪切到/usr/local文件夹下"></a>三、把解压后的文件剪切到<strong><em>/usr/local</em></strong>文件夹下</h2><h2 id="四、配置环境变量"><a href="#四、配置环境变量" class="headerlink" title="四、配置环境变量"></a>四、配置环境变量</h2><blockquote>
+<p>编辑 <strong><em>～/.bash_profile</em></strong><br>把 <strong><em>export PATH=${PATH}:/usr/local/xxx/bin</em></strong> (xxx: 刚才解压的文件夹名字) 复制到最后一行<br>保存，关闭<br>在命令后里面输入<strong><em>source .bash_profile</em></strong> 刷新配置文件</p>
+</blockquote>
+<h2 id="五、验证"><a href="#五、验证" class="headerlink" title="五、验证"></a>五、验证</h2><blockquote>
+<p>在命令后里面输入<strong><em>mongod -version</em></strong> 出现版本号即安装成功</p>
+</blockquote>
+<h2 id="六、设置data路径"><a href="#六、设置data路径" class="headerlink" title="六、设置data路径"></a>六、设置data路径</h2><blockquote>
+<p>新建文件夹然后配置权限<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /data/db &amp;&amp; sudo chmod 0755 /data/db &amp;&amp; sudo chown $USER /data/db</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="七、启动mongodb"><a href="#七、启动mongodb" class="headerlink" title="七、启动mongodb"></a>七、启动mongodb</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在浏览器里面输入<strong><em>localhost:27017</em></strong><br>显示<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">It looks like you are trying to access MongoDB over HTTP on the native driver port.</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>即启动成功<br>加入提示没有该命令 输入<strong><em>source .bash_profile</em></strong> 刷新配置文件 即可</p>
+</blockquote>
+<h2 id="八、退出"><a href="#八、退出" class="headerlink" title="八、退出"></a>八、退出</h2><blockquote>
+<p>新打开一个命令行<br>输入<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use admin;</span><br><span class="line">db.shutdownServer();</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>退出成功</p>
+</blockquote>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><blockquote>
+<p>还可以通过 Homebrew 安装<br>也可以通过命令安装</p>
+</blockquote>
+</div></div><div class="post-main post-comment"><div id="gitalk-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script>const gitalk = new Gitalk({
+    clientID: '4c4af1e8cf94493fa426',
+    clientSecret: '6dcb2edc797cbc17b0591b115adf1b5ec50fa3d1',
+    repo: 'Xminger.github.io',
+    owner: 'Xminger',
+    admin: ['Xminger'],
+    id: '2021/06/09/installmongodb/',      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+});
+gitalk.render('gitalk-container');</script></div></article><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css"><script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script><script src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script>$(document).ready(function() {
+  $(".fancybox").fancybox();
+});</script></body></html>
